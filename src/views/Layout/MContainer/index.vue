@@ -1,10 +1,10 @@
 <template>
   <div class="m-container">
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item v-for="router in handleCurRouter"
+    <Breadcrumb separator="/">
+      <Breadcrumb-item v-for="router in handleCurRouter"
                           :key="router.path"
-                          :to="{ path: router.path }">{{ router.meta && router.meta.name }}</el-breadcrumb-item>
-    </el-breadcrumb>
+                          :to="{ path: router.path }">{{ router.meta && router.meta.name }}</Breadcrumb-item>
+    </Breadcrumb>
     <div class="m-main">
       <router-view></router-view>
     </div>

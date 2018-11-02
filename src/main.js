@@ -3,10 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui';
 import Lodash from 'lodash';
+import iView from 'iview';
 import Moment from 'moment';
-import 'element-ui/lib/theme-chalk/index.css';
+import Axios from './api'
+import Common from './common'
+
+import 'iview/dist/styles/iview.css';
 import 'normalize.css'
 
 // 兼容ie
@@ -17,8 +20,10 @@ import ElementDataset from 'element-dataset';
 ElementDataset();
 Es6Promise.polyfill();
 
-Vue.use(ElementUI);
+Vue.use(iView);
+Vue.use(Common);
 
+Vue.prototype.$http = Axios;
 // 添加全局变量
 global._ = Lodash;
 global.moment = Moment;

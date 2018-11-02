@@ -2,8 +2,8 @@
   <div class="m-layout">
     <m-header></m-header>
     <div class="m-body">
-      <m-sidebar></m-sidebar>
-      <m-container></m-container>
+      <m-sidebar collapsed :style="{width: collapsed ? '60px' : '200px'}"></m-sidebar>
+      <!--<m-container></m-container>-->
     </div>
   </div>
 </template>
@@ -14,6 +14,11 @@
   import MContainer from './MContainer'
   export default {
     components: { MHeader, MSidebar, MContainer },
+    data() {
+      return{
+        collapsed: true
+      }
+    }
   }
 </script>
 
@@ -22,11 +27,15 @@
   .m-body{
     position: relative;
     .m-sidebar{
+      width: 200px;
       position: fixed;
       left: 0;
       top: 70px;
       bottom: 0;
       overflow: auto;
+      transition: all .3s;
+      background: #001529;
+      padding-top: 15px;
     }
     .m-container{
       width: 100%;
